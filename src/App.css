@@ -1,0 +1,65 @@
+#root {
+  max-width: 1280px;
+  place-content: inherit;
+  margin: 0 0;
+  padding: 2rem;
+  text-align: center;
+ 
+}
+
+#character-avatar {
+  width: 30rem;
+  border-radius: 10px;
+  transition: transform ease-in-out 0.3s;
+}
+
+#character-avatar:hover {
+  transform: scale(1.1);
+}
+
+#quote{
+  max-width: 500px;
+}
+
+@media (max-width: 600px ) {
+  #character-avatar {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+  #character-avatar {
+    width: 20rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #character-avatar {
+    width: 25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #character-avatar {
+    width: 30rem;
+  }
+}
+
+#quote p{
+  font-size: larger;
+  font-weight: 500;
+}
+
+button {
+  font-weight: 800;
+  color: white;
+  margin-top: 10px;
+  font-size: larger;
+  font-weight: 500;
+  transition: transform ease-in-out 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  transform: scale(1.2);
+}
