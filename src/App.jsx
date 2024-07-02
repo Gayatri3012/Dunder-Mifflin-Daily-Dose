@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { isOffensiveQuote } from '../public/offensive-quote-ids';
 
 const INITIAL_QUOTE = {quote: 'quote' , character: 'character'}
 
@@ -13,8 +14,13 @@ function App() {
       setIsFetching(true);
       const response = await fetch('https://officeapi.akashrajpurohit.com/quote/random');
       const resData = await response.json();
-      setFetchedQuote(resData);
-      setIsFetching(false);
+      if(!isOffensiveQuote(resData.id)){
+        setFetchedQuote(resData);
+        setIsFetching(false);
+      } else {
+        fetchQuote();
+      }
+     
     }
     fetchQuote();
   },[])
@@ -23,8 +29,12 @@ function App() {
     setIsFetching(true);
     const response = await fetch('https://officeapi.akashrajpurohit.com/quote/random');
     const resData = await response.json();
-    setFetchedQuote(resData);
-    setIsFetching(false);
+    if(!isOffensiveQuote(resData.id)){
+      setFetchedQuote(resData);
+      setIsFetching(false);
+    } else {
+      handleNewQuote();
+    }
   };
 
   return (
